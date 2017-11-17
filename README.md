@@ -265,6 +265,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 685 | [Redundant Connection II](https://leetcode.com/problems/redundant-connection-ii/) | [C++](./C++/redundant-connection-ii.cpp) [Python](./Python/redundant-connection-ii.py) | _O(n)_ | _O(n)_ | Hard || Union Find
 687 | [Longest Univalue Path](https://leetcode.com/problems/longest-univalue-path/) | [C++](./C++/longest-univalue-path.cpp) [Python](./Python/longest-univalue-path.py) | _O(n)_ | _O(h)_ | Easy ||
 699 | [Falling Squares](https://leetcode.com/problems/falling-squares/) | [C++](./C++/falling-squares.cpp) [Python](./Python/falling-squares.py) | _O(nlogn)_ | _O(n)_ | Hard || Segment Tree |
+572 | [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/) | [Python](./Python/subtree-of-another-tree.py) ||||||
 
 ## Hash Table
 |  #  | Title           |  Solution       |  Time           | Space           | Difficulty    | Tag          | Note| 
