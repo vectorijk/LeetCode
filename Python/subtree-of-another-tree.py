@@ -44,6 +44,27 @@
 #         self.right = None
 
 class Solution(object):
+    def isSubtree(self, s, b):
+        if s == None:
+            if b != None:
+                return False
+            else:
+                return True
+        else:
+            return self.isSame(s, b) or (self.isSubtree(s.left, b) or self.isSubtree(s.right, b))
+        
+    def isSame(self, s, b):
+        if s == None and b == None:
+            return True
+        if s != None and b != None:
+            return s.val == b.val and self.isSame(s.left, b.left) and self.isSame(s.right, b.right)
+        else:
+            return False
+        
+        
+    def
+    
+    
     def isSubtree(self, s, t):
         """
         :type s: TreeNode
