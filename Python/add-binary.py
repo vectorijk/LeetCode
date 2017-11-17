@@ -14,6 +14,30 @@ class Solution:
     # @param b, a string
     # @return a string
     def addBinary(self, a, b):
+        """
+        :type a: str
+        :type b: str
+        :rtype: str
+        """
+        res = []
+        a, b = a[::-1], b[::-1]
+        carry = 0
+        val = 0
+        for i in range(max(len(a), len(b))):
+            val = carry
+            if i < len(a):
+                val += int(a[i])
+            if i < len(b):
+                val += int(b[i])
+            carry, val = val // 2, val % 2
+            res.append(val)
+        
+        if carry == 1:
+            res.append(carry)
+            
+        return ''.join(map(str,res[::-1]))
+    
+    def addBinary(self, a, b):
         result, carry, val = "", 0, 0
         for i in xrange(max(len(a), len(b))):
             val = carry
