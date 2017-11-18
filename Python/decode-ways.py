@@ -21,6 +21,26 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
+        if s == "":
+            return 0
+        dp = [0] * (len(s) + 1)
+        dp[1] = 0 if s[0] == '0' else 1
+        dp[0] = 1
+        for i in range(1, len(s)):
+            idx = i + 1
+            if int(s[i]) >= 1 and int(s[i]) <= 9:
+                dp[idx] += dp[idx-1]
+            if int(s[i-1] + s[i]) >= 10 and int(s[i-1] + s[i]) <= 26:
+                dp[idx] += dp[idx-2] 
+        # print dp
+        return dp[-1]
+
+class Solution(object):
+    def numDecodings(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
         if len(s) == 0 or s[0] == '0':
             return 0
         prev, prev_prev = 1, 0
