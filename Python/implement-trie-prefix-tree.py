@@ -7,6 +7,69 @@
 # You may assume that all inputs are consist of lowercase letters a-z.
 #
 
+
+# my version
+class TrieNode(object):
+    def __init__(self, cha):
+        self.cha = cha
+        self.children = [None] * 26
+        self.isWord = False
+
+
+class Trie(object):
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.rootNode = TrieNode('')
+        
+    def insert(self, word):
+        """
+        Inserts a word into the trie.
+        :type word: str
+        :rtype: void
+        """
+        cur = self.rootNode
+        for w in word:
+            if cur.children[ord(w) - ord('a')] is None:
+                tmp = TrieNode(w)
+                cur.children[ord(w) - ord('a')] = tmp
+                cur = tmp
+            else:
+                cur = cur.children[ord(w) - ord('a')]
+        cur.isWord = True
+
+    def search(self, word):
+        """
+        Returns if the word is in the trie.
+        :type word: str
+        :rtype: bool
+        """
+        cur = self.rootNode
+        for w in word:
+            if cur.children[ord(w) - ord('a')] is None:
+                return False
+            else:
+                cur = cur.children[ord(w)-ord('a')]
+                
+        return cur.isWord
+
+    def startsWith(self, prefix):
+        """
+        Returns if there is any word in the trie that starts with the given prefix.
+        :type prefix: str
+        :rtype: bool
+        """
+        cur = self.rootNode
+        for w in prefix:
+            if cur.children[ord(w) - ord('a')] is None:
+                return False
+            else:
+                cur = cur.children[ord(w)-ord('a')]
+        return cur != None
+
+
+
 class TrieNode:
     # Initialize your data structure here.
     def __init__(self):
