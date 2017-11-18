@@ -21,6 +21,64 @@
 # You may assume that all words are consist of lowercase letters a-z.
 #
 
+#my version
+class TrieNode(object):
+    def __init__(self, cha):
+        self.cha = cha
+        self.children = [None] * 26
+        self.isWord = False
+
+
+class WordDictionary(object):
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.rootNode = TrieNode('')
+
+    def addWord(self, word):
+        """
+        Adds a word into the data structure.
+        :type word: str
+        :rtype: void
+        """
+        cur = self.rootNode
+        for w in word:
+            if cur.children[ord(w) - ord('a')] is None:
+                tmp = TrieNode(w)
+                cur.children[ord(w) - ord('a')] = tmp
+                cur = tmp
+            else:
+                cur = cur.children[ord(w) - ord('a')]
+        cur.isWord = True
+
+    def search(self, word):
+        """
+        Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter.
+        :type word: str
+        :rtype: bool
+        """
+        
+        def dfs(word, idx, cur):
+            if idx == len(word):
+                return cur.isWord
+            if word[idx] == '.':
+                flag = False
+                for nxt in cur.children:
+                    if nxt is not None:
+                        res = dfs(word, idx + 1, nxt)
+                        flag = flag or res
+                return flag
+            else:
+                nxt = cur.children[ord(word[idx]) - ord('a')]
+                if nxt is None:
+                    return False
+                else:
+                    return dfs(word, idx + 1, nxt)
+        
+        cur = self.rootNode
+        return dfs(word, 0, cur)
+
 class TrieNode:
     # Initialize your data structure here.
     def __init__(self):
