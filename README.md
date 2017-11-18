@@ -39,6 +39,11 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 
 * [Shell Script](https://github.com/kamyu104/LeetCode#shell-script)
 
+## FB-tag
+|  #  | Title           |  Solution       |  Time           | Space           | Difficulty    | Tag          | Note| 
+|-----|---------------- | --------------- | --------------- | --------------- | ------------- |--------------|-----|
+636| [Exclusive Time of Functions](https://leetcode.com/problems/exclusive-time-of-functions/description/) | [Python](./Python/exclusive-time-of-functions.py) |_O(n)_ | _O(n)_ ||||
+
 ## Bit Manipulation
 |  #  | Title           |  Solution       |  Time           | Space           | Difficulty    | Tag          | Note| 
 |-----|---------------- | --------------- | --------------- | --------------- | ------------- |--------------|-----|
