@@ -26,6 +26,44 @@
 #        :rtype List[NestedInteger]
 #        """
 
+#iterator
+class NestedIterator(object):
+    def __init__(self, nestedList):
+        self.stack = nestedList[::-1]
+        
+    def next(self):
+        return self.stack.pop().getInteger()
+
+    def hasNext(self):
+        # if stack top is List, push every element in list
+        while self.stack and not self.stack[-1].isInteger():
+            top = self.stack.pop()
+            for nestedInt in top.getList()[::-1]:
+                self.stack.append(nestedInt)
+        
+        return len(self.stack) > 0
+
+### dfs 
+class NestedIterator(object):
+    def __init__(self, nestedList):
+        result = []
+        self.dfs(nestedList, result)
+        self.lst = result[::-1]
+    
+    def dfs(self, nestedList, res):
+        for item in nestedList:
+            if item.isInteger():
+                res.append(item.getInteger())
+            else:
+                self.dfs(item.getList(), res)
+
+    def next(self):
+        return self.lst.pop()
+
+    def hasNext(self):
+        return len(self.lst) > 0
+
+
 class NestedIterator(object):
 
     def __init__(self, nestedList):
