@@ -23,6 +23,29 @@
 #         self.left = None
 #         self.right = None
 
+#my version
+class Solution(object):
+    def __init__(self):
+        self.diameter = 0
+        
+    def dfs(self, root):
+        if root == None:
+            return 0
+        l = self.dfs(root.left)
+        r = self.dfs(root.right)
+        
+        self.diameter = max(self.diameter, l + r)
+        return max(l, r) + 1
+    
+    def diameterOfBinaryTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        self.dfs(root)
+        return self.diameter
+    
+
 class Solution(object):
     def diameterOfBinaryTree(self, root):
         """
