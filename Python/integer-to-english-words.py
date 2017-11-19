@@ -62,3 +62,58 @@ class Solution(object):
         if num in lookup:
             return lookup[num]
         return lookup[(num / 10) * 10] + " " + lookup[num % 10]
+    
+    
+class Solution(object):
+    def numberToWords(self, num):
+        """
+        :type num: int
+        :rtype: str
+        """
+        if num == 0:
+            return "Zero"
+        
+        neg = "Negative" if num < 0 else ""
+        
+        unit = ["", "Thousand", "Million", "Billion"]
+        
+        lookup = {1:"One", 2: "Two", 3: "Three", 4: "Four", \
+                  5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine", \
+                  10: "Ten", 11: "Eleven", 12: "Twelve", 13: "Thirteen", 14: "Fourteen", \
+                  15: "Fifteen", 16: "Sixteen", 17: "Seventeen", 18: "Eighteen", 19: "Nineteen", \
+                  20: "Twenty", 30: "Thirty", 40: "Forty", 50: "Fifty", 60: "Sixty", \
+                  70: "Seventy", 80: "Eighty", 90: "Ninety"}
+        
+        def do_three(num, lookup):
+            result = []
+            if num >= 100:
+                result.append(lookup[num/100])
+                result.append("Hundred")
+            
+            if num % 100 != 0:
+                if 0 < (num % 100) < 20:
+                    result.append(lookup[num % 100])
+                else:
+                    num = num % 100
+                    result.append(lookup[(num % 100) - (num % 10)])
+
+                    if 0 < (num % 10) < 10:
+                        result.append(lookup[num % 10])
+            
+            return ' '.join(result)
+        
+        
+        result = []
+        
+        ut = 0
+        while num > 0:
+            last_three = num % 1000
+            num_str = do_three(last_three, lookup)
+            if num_str != '':
+                if ut > 0:
+                    result.append(unit[ut])
+                result.append(num_str)
+            ut += 1
+            num /= 1000
+            
+        return neg + ' '.join(result[::-1])
