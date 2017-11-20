@@ -40,3 +40,39 @@ class Solution(object):
             if count == max_count:
                 result += 1
         return max(result, len(tasks))
+    
+def task_schedule_ordered(task, interval):
+	# task: str
+	# interval: int
+	lookup = {}
+
+	result = ''
+
+	time = 0
+	for t in task:
+		if t not in lookup:
+			lookup[t] = time + interval
+			time += 1
+			
+			result += t
+		else:
+			if time < lookup[t]:
+				for i in range(time, lookup[t]):
+					result += '-'
+				result += t
+				time = lookup[t]
+				lookup[t] = time + interval
+				time += 1
+			else:
+				lookup[t] = time + interval
+				time += 1
+
+				result += t
+
+	return result
+
+task = 'AABBCCAB'
+task2 = 'AABCA'
+interval = 3
+print len(task_schedule_ordered(task, interval))
+print task_schedule_ordered(task, interval)
