@@ -68,6 +68,8 @@ def task_schedule_ordered(task, interval):
 				time += 1
 
 				result += t
+
+	return result
                 
 #     for t in task:
 # 		if t not in lookup or time >= lookup[t]:
