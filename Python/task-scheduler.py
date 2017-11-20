@@ -86,8 +86,6 @@ def task_schedule_ordered(task, interval):
 # 				lookup[t] = time + interval
 # 				time += 1
 
-	return result
-
 task = 'AABBCCAB'
 task2 = 'AABCA'
 interval = 3
