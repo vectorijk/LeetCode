@@ -25,14 +25,18 @@ class Solution(object):
         :type k: int
         :rtype: bool
         """
+        
+        # a % k == b % k   -> (a - b) % k == 0
+        
         count = 0
         lookup = {0: -1}
         for i, num in enumerate(nums):
             count += num
-            if k:
+            if k:   # k != 0
                 count %= k
             if count in lookup:
-                if i - lookup[count] > 1:
+                if i - lookup[count] > 1:  # a continuous subarray
+# of size at least 2  
                     return True
             else:
                 lookup[count] = i
