@@ -44,6 +44,8 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 |-----|---------------- | --------------- | --------------- | --------------- | ------------- |--------------|-----|
 636| [Exclusive Time of Functions](https://leetcode.com/problems/exclusive-time-of-functions/description/) | [Python](./Python/exclusive-time-of-functions.py) |_O(n)_ | _O(n)_ ||||
 621| [Task Scheduler](https://leetcode.com/problems/task-scheduler/description/) |[Python](./Python/task-scheduler.py) |_O(n)_|||||
+523| [Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/discuss/) | [Python](./Python/continuous-subarray-sum.py) |_O(n)_|||||
+
 
 ## Bit Manipulation
 |  #  | Title           |  Solution       |  Time           | Space           | Difficulty    | Tag          | Note| 
