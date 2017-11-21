@@ -31,7 +31,21 @@ class TreeNode:
         self.val = x
         self.left = None
         self.right = None
+        
+class MySolution:
+    # @param root, a tree node
+    # @return nothing, do it in place
+    def flatten(self, root):
+        if not root: return
+        L , R =root.left,root.right
+        self.flatten(L)
+        root.left=None
+        root.right = L
+        while root.right: root=root.right
+        self.flatten(R)
+        root.right = R
 
+###
 class Solution:
     # @param root, a tree node
     # @return nothing, do it in place
