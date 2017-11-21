@@ -31,7 +31,8 @@ class TreeNode:
         self.val = x
         self.left = None
         self.right = None
-        
+
+# 思路：递归，设root左右子结点为L和R，先将L变为一条链，将root.right指向L，之后把R变为一条链，L最后一个元素指向R即可。
 class MySolution:
     # @param root, a tree node
     # @return nothing, do it in place
