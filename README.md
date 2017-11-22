@@ -47,6 +47,7 @@ I'll keep updating for full summary and better solutions. Stay tuned for updates
 523| [Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/discuss/) | [Python](./Python/continuous-subarray-sum.py) |_O(n)_|||||
 721 |[Accounts Merge](https://github.com/vectorijk/LeetCode/blob/master/Python/accounts-merge.py) | [Python](./Python/accounts-merge.py) |_O(nlogn)_|||||
 FB |Most Left One in Matrix|[Python](./Python/most-left-one-index-in-matrix.py) |_O(nlogn)_|||||
+FB |K most closest points |[Python](./Python/k-most-closest-points.py) |_O(nlogn)_|||||
 
 
 ## Bit Manipulation
