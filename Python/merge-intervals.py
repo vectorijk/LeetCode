@@ -35,6 +35,29 @@ class Solution(object):
             else:
                 result.append(current)
         return result
+    
+#my solution
+def merge(self, intervals):
+        """
+        :type intervals: List[Interval]
+        :rtype: List[Interval]
+        """
+        if len(intervals) == 0:
+            return []
+        intervals = sorted(intervals, key=lambda i: [i.start,i.end])
+        
+        s = intervals[0].start
+        e = intervals[0].end
+        result = []
+        for i in range(1, len(intervals)):
+            if intervals[i].start > e:
+                result.append(Interval(s,e))
+                s = intervals[i].start
+                e = intervals[i].end
+            else:
+                e = max(e, intervals[i].end)
+        result.append(Interval(s,e))
+        return result
 
 
 if __name__ == "__main__":
