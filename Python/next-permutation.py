@@ -31,7 +31,7 @@ class Solution:
                 l = i
                 
         num[k], num[l] = num[l], num[k]
-        num[k + 1:] = num[:k:-1]
+        num[k + 1:] = num[len(num)-1:k:-1]
 
 if __name__ == "__main__":
     num = [1, 4, 3, 2]
