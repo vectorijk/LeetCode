@@ -53,3 +53,28 @@ class Solution_Generalization(object):
             return k == 0
 
         return increasingKUplet(nums, 3)
+    
+    
+#这个解法的思路是建立两个数组，forward数组和backward数组，其中forward[i]表示[0, i]之间最小的数，backward[i]表示[i, n-1]之间最大的数，那么对于任意一个位置i，如果满足 forward[i] < nums[i] < backward[i]，则表示这个递增三元子序列存在，举个例子来看吧，比如：
+#nums:        8  3  5  1  6
+#foward:      8  3  3  1  1
+#backward:  8  6  6  6  6
+#我们发现数字5满足forward[i] < nums[i] < backward[i]，所以三元子序列存在
+class Solution {
+public:
+    bool increasingTriplet(vector<int>& nums) {
+        if (nums.size() < 3) return false;
+        int n = nums.size();
+        vector<int> f(n, nums[0]), b(n, nums.back());
+        for (int i = 1; i < n; ++i) {
+            f[i] = min(f[i - 1], nums[i]);
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            b[i] = max(b[i + 1], nums[i]);
+        }
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] > f[i] && nums[i] < b[i]) return true;
+        }
+        return false;
+    }
+};
