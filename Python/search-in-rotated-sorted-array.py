@@ -11,6 +11,7 @@
 #
 
 class Solution(object):
+    #my solution
     def search(self, nums, target):
         """
         :type nums: List[int]
