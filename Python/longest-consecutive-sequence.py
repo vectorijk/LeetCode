@@ -22,6 +22,20 @@ class Solution:
                 length = 1 + left + right
                 result, lengths[i - left], lengths[i + right] = max(result, length), length, length
         return result
+    
+public:
+    int longestConsecutive(vector<int>& nums) {
+        unordered_set<int> h(nums.begin(), nums.end());
+        int ans = 0;
+        for (int num : nums)            
+            if (!h.count(num - 1)) {
+                int l = 0;
+                while (h.count(num++)) ++l;
+                ans = max(ans, l);
+            }
+        return ans;
+    }
+};
 
 if __name__ == "__main__":
     print Solution().longestConsecutive([100, 4, 200, 1, 3, 2])
