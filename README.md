@@ -50,6 +50,7 @@ FB |Most Left One in Matrix|[Python](./Python/most-left-one-index-in-matrix.py) 
 FB |K most closest points |[Python](./Python/k-most-closest-points.py) |_O(nlogn)_|||||
 560 | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/description/) | [Python](./Python/subarray-sum-equals-k.py) |_O(n)_|||||
 463| [Island Perimeter](https://leetcode.com/problems/island-perimeter/) |[Python](./Python/island-perimeter.py) |_O(m*n)_|||||
+282| [Expression Add Operators](https://leetcode.com/problems/expression-add-operators/) | [C++](./C++/expression-add-operators.cpp)  [Python](./Python/expression-add-operators.py)  | _O(4^n)_ | _O(n)_ | Hard         |||
 
 
 ## Bit Manipulation
