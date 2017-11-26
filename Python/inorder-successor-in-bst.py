@@ -32,3 +32,19 @@ class Solution(object):
                 root = root.right
 
         return successor
+
+   
+
+
+public TreeNode inorderPredecessor (TreeNode root, TreeNode p) {     
+    TreeNode pre = null;
+    while(root!=null) { 
+        if(root.val < p.val) {
+            pre = root;
+            root = root.right; 
+        } else {
+            root = root.left;
+        }
+    } 
+    return pre;
+}
