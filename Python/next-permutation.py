@@ -41,3 +41,24 @@ if __name__ == "__main__":
     print num
     Solution().nextPermutation(num)
     print num
+
+    
+    
+    
+    
+#previous permutation
+String prevPermutation(string s) {
+     If (s.length() < 2 ) return "";
+     Int i = s.length()-2;
+     Char prev = s[s.length()-1];
+     while(i>=0) { 
+        if (prev < s[i]) { break;  } 
+        Else { prev = s[i]; i--; }
+     }
+    If ( i == -1) return s;
+    Int j = s.length()-1;
+    While ( j > i) { if (s[j] < s[i]) break; else j--; }
+    swap(s[i],s[j]);
+    sort(s.begin()+i+1,s.end(),greater<char>);
+    Return s;
+}
