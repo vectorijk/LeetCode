@@ -42,3 +42,37 @@ class Solution(object):
 if __name__ == "__main__":
     matrix = [[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 50]]
     print Solution().searchMatrix(matrix, 3)
+    
+    
+bool searchMatrix(vector<vector<int> > &matrix, int target) {  
+2:            int row = matrix.size();  
+3:            if(row ==0) return false;  
+4:            int col = matrix[0].size();  
+5:            if(col ==0) return false;      
+6:            if(target< matrix[0][0]) return false;  
+7:            int start = 0, end = row-1;  
+8:            while(start<= end)  
+9:            {  
+10:                 int mid = (start+end)/2;  
+11:                 if(matrix[mid][0] == target)  
+12:                      return true;  
+13:                 else if(matrix[mid][0] < target)  
+14:                      start = mid+1;  
+15:                 else  
+16:                      end = mid-1;  
+17:            }  
+18:            int targetRow = end;  
+19:            start =0;  
+20:            end = col-1;  
+21:            while(start <=end)  
+22:            {  
+23:                 int mid = (start+end)/2;  
+24:                 if(matrix[targetRow][mid] == target)  
+25:                      return true;  
+26:                 else if(matrix[targetRow][mid] < target)  
+27:                      start = mid+1;  
+28:                 else  
+29:                      end = mid-1;  
+30:            }  
+31:            return false;  
+32:       }  
