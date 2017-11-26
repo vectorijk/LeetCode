@@ -75,3 +75,81 @@ class Solution(object):
             else:
                 right.next()
         return False
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+#inorder array two points    
+class Solution {
+    public boolean findTarget(TreeNode root, int k) {
+        List<Integer> nodes = new ArrayList<>();
+        inOrder(root, nodes);
+        
+        int i = 0;
+        int j = nodes.size() - 1;
+        while (i < j) {
+            int left = nodes.get(i);
+            int right = nodes.get(j);
+            if (left + right < k) {
+                i++;
+            } else if (left + right == k) {
+                return true;
+            } else {
+                j--;
+            }
+        }
+        return false;
+    }
+    
+    private void inOrder(TreeNode root, List<Integer> nodes) {
+        if (root == null) {
+            return;
+        }
+        
+        inOrder(root.left, nodes);
+        nodes.add(root.val);
+        inOrder(root.right, nodes);
+    }
+}
+
+
+#bfs
+class Solution {
+public:
+    bool findTarget(TreeNode* root, int k) {
+        if (!root) return false;
+        unordered_set<int> s;
+        queue<TreeNode*> q{{root}};
+        while (!q.empty()) {
+          auto t = q.front(); q.pop();
+          if (s.count(k - t->val)) return true;
+          s.insert(t->val);
+          if (t->left) q.push(t->left);
+          if (t->right) q.push(t->right);
+        }
+        return false;
+    }
+};
+
+#dfs
+class Solution {
+public:
+    bool findTarget(TreeNode* root, int k) {
+        if (!root) return false;
+        unordered_set<int> s;
+        return helper(root, k, s);
+    }
+    bool helper(TreeNode* node, int k, unordered_set<int>& s) {
+        if (!node) return false;
+        if (s.count(k - node->val)) return true;
+        s.insert(node->val);
+        return helper(node->left, k, s) || helper(node->right, k, s);
+    }
+};
