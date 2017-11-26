@@ -19,6 +19,25 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
+        
+        mp = {}    
+        cnt = 0
+        result = 0
+        mp[0] = 1
+        for i in range(0, len(nums)):
+            cnt += nums[i]
+            if (cnt - k) in mp:
+                result += mp[cnt-k]
+            tmp = mp.get(cnt, 0) + 1
+            mp[cnt] = tmp
+        return result
+    
+    def subarraySum(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
         result = 0
         accumulated_sum = 0
         lookup = collections.defaultdict(int)
