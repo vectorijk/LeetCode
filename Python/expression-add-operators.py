@@ -14,6 +14,47 @@
 #
 
 class Solution(object):
+    ###
+    # my solution
+    ###
+#由于运算符的优先级，因此，分为两半，一个是pre为计算的值，一个为val为pre右方还未计算的值.
+#对于当前的数x，进行如下的操作可以保证优先级
+#加法：pre = pre + val   val = x
+#减法： pre =  pre – val   val = -x
+#乘法：pre = pre      val = val *x
+#当前的第一个数为’0’的情况   计算完后Break
+    def addOperators(self, num, target):
+        """
+        :type num: str
+        :type target: int
+        :rtype: List[str]
+        """
+        def dfs(num, idx, path, ans, target, n, pre, val):
+            if idx == n and pre + val == target:
+                ans.append(path)
+                return
+            
+            x = 0
+            for i in range(idx, n):
+                x = 10*x + ord(num[i]) - ord('0')
+                str_x = str(x)
+                if idx != 0:
+                    dfs(num, i+1, path+'+'+str_x, ans, target, n, pre+val,  x)
+                    dfs(num, i+1, path+'-'+str_x, ans, target, n, pre+val, -x)
+                    dfs(num, i+1, path+'*'+str_x, ans, target, n, pre,  val*x)
+                else:
+                    dfs(num, i+1, str_x, ans, target, n, 0, x)
+                if num[idx] == '0':
+                    break
+                    
+        ans = []
+        dfs(num, 0, '', ans, target, len(num), 0, 0)
+        return ans
+    
+    
+    
+    
+    
     def addOperators(self, num, target):
         """
         :type num: str
