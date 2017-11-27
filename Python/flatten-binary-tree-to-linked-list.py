@@ -32,6 +32,22 @@ class TreeNode:
         self.left = None
         self.right = None
 
+def flatten2(root):
+	if root == None:
+		return
+	stack = []
+	stack.append(root)
+	while stack:
+		cur = stack.pop()
+		if cur.right != None:
+			stack.append(cur.right)
+		if cur.left != None:
+			stack.append(cur.left)
+		if len(stack) > 0:
+			cur.right = stack[-1]
+		cur.left = None
+        
+        
 # 思路：递归，设root左右子结点为L和R，先将L变为一条链，将root.right指向L，之后把R变为一条链，L最后一个元素指向R即可。
 class MySolution:
     # @param root, a tree node
