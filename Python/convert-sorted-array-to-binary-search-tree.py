@@ -10,6 +10,23 @@ class TreeNode:
         self.val = x
         self.left = None
         self.right = None
+#####    
+class Solution(object):
+    def sortedArrayToBST(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: TreeNode
+        """
+ 
+        def build_tree(L, R):
+            if L > R: return None
+            mid = (L + R) >> 1
+            root = TreeNode(nums[mid])
+            root.left = build_tree(L, mid - 1)
+            root.right = build_tree(mid + 1, R)
+            return root
+ 
+        return build_tree(0, len(nums) - 1)
 
 class Solution:
     # @param num, a list of integers
