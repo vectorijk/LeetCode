@@ -22,6 +22,9 @@
 # @return a bool
 # def isBadVersion(version):
 
+#ffffffttttt
+#nnnnnnbbbbb .   not bad .    bad
+
 class Solution(object):
     def firstBadVersion(self, n):
         """
