@@ -36,6 +36,23 @@ class Solution:
             while i+1<n and S[i]==S[i+1]: i+=1
             res.pop()
             i+=1
+
+
+class Solution(object):
+    def subsetsWithDup(self, S):
+        S.sort()
+        ans,res=[],[]
+        self.solve(0, len(S), S, res, ans)
+        return ans
+                      
+    def solve(self,cur,n,S,res,ans):           
+        ans.append(res[:])
+        for i in range(cur, n):
+            if i > cur and S[i]==S[i-1]:
+                continue
+            res.append(S[i])
+            self.solve(i+1, len(S), S, res, ans)
+            res.pop()
             
 public class SubsetsII {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
