@@ -115,3 +115,29 @@ if __name__ == "__main__":
 #         preorder(root->right, allNodes);
 #     }
 # };
+
+
+
+# flatten inorder
+# 1:  TreeNode* flatten(TreeNode *root) {  
+# 2:       if (root == NULL) return NULL;  
+# 3:       TreeNode* rightTree = root->right;  
+# 4:       TreeNode* newHead = root;  
+# 5:       TreeNode* leftList = flatten(root->left);  
+# 6:       if (leftList != NULL)  
+# 7:       {  
+# 8:            newHead = leftList;  
+# 9:            TreeNode* tail = leftList->left;  
+# 10:            tail->right = root;  
+# 11:            root->left = tail;  
+# 12:            leftList->left = root;  
+# 13:       }  
+# 14:       TreeNode* rightList = flatten(rightTree);  
+# 15:       if (rightList != NULL)  
+# 16:       {  
+# 17:            root->right = rightList;  
+# 18:            newHead->left = rightList->left;  
+# 19:            rightList->left = root;  
+# 20:       }  
+# 21:       return newHead;  
+# 22:  } 
