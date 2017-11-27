@@ -37,6 +37,27 @@ class Solution(object):
                 cnt -= 1
         return cnt == 0
 
+    
+# private String deleteRight(String s) {. more info on 1point3acres.com
+#         StringBuilder sb = new StringBuilder();
+#         int left = 0;
+#         for (char ch : s.toCharArray()) {
+#             sb.append(ch);
+#             if (ch == '(') {
+#                 left++;. more info on 1point3acres.com
+#             } else if (ch == ')') {
+#                 if (left > 0) {
+#                     left--;
+#                 } else {. from: 1point3acres.com/bbs 
+#                     sb.deleteCharAt(sb.length() - 1);
+#                 }
+#             }
+#         }
+#         return sb.toString();
+#     }
+# same deleteLeft(String s) two passes.
+    
+
 # DFS solution.
 class Solution(object):
     def removeInvalidParentheses(self, s):
