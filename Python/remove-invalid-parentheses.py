@@ -38,17 +38,17 @@ class Solution(object):
         return cnt == 0
 
     
-# private String deleteRight(String s) {. more info on 1point3acres.com
+# private String deleteRight(String s) {
 #         StringBuilder sb = new StringBuilder();
 #         int left = 0;
 #         for (char ch : s.toCharArray()) {
 #             sb.append(ch);
 #             if (ch == '(') {
-#                 left++;. more info on 1point3acres.com
+#                 left++;
 #             } else if (ch == ')') {
 #                 if (left > 0) {
 #                     left--;
-#                 } else {. from: 1point3acres.com/bbs 
+#                 } else {
 #                     sb.deleteCharAt(sb.length() - 1);
 #                 }
 #             }
