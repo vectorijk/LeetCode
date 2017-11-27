@@ -16,6 +16,27 @@ class ListNode:
     def __init__(self, x):
         self.val = x
         self.next = None
+        
+######
+class Solution(object):
+    def sortedListToBST(self, head):
+        """
+        :type head: ListNode
+        :rtype: TreeNode
+        """
+ 
+        def build_tree(head, end):
+            if head == end: return None
+            fast = slow = head
+            while fast != end and fast.next != end:
+                slow, fast = slow.next, fast.next.next
+            root = TreeNode(slow.val)
+            root.left = build_tree(head, slow)
+            root.right = build_tree(slow.next, end)
+            return root
+ 
+        return build_tree(head, None)
+######
 
 class Solution:
     head = None
