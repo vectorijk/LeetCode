@@ -55,7 +55,7 @@ class Solution(object):
 #         }
 #         return sb.toString();
 #     }
-# same deleteLeft(String s) two passes.
+# same deleteLeft(String s) scan from end to start two passes.
     
 
 # DFS solution.
